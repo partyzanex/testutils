@@ -4,7 +4,7 @@ Test toolkit for simplify the development of tests on Go
 
 This package contains universal interfaces and utilities for handling errors in tests and benchmarks
 
-#### Example
+### Example
 
 ```go
 package some_test
