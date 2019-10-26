@@ -10,7 +10,7 @@ This package contains universal interfaces and utilities for handling errors in 
 package some_test
 
 import (
-	"gitlab.com/partyzan65/testutils"
+	"github.com/partyzanex/testutils"
 	"testing"
 	"time"
 )
