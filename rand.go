@@ -35,3 +35,20 @@ func RandomDate(min, max time.Time) time.Time {
 	ts := RandInt64(min.Unix(), max.Unix())
 	return time.Unix(ts, 0)
 }
+
+var (
+	set    = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890~!@#$%^&*()-_+={}[]\\|<,>.?/\"';:`")
+	setLen = len(set) - 1
+)
+
+func RandomString(n int) string {
+	rand.Seed(time.Now().UnixNano())
+	randStr := make([]byte, n)
+
+	for i := 0; i < n; i++ {
+		r := rand.Intn(setLen)
+		randStr[i] = set[r]
+	}
+
+	return string(randStr)
+}
