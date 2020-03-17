@@ -37,7 +37,7 @@ func RandomDate(min, max time.Time) time.Time {
 }
 
 var (
-	set    = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890~!@#$%^&*()-_+={}[]\\|<,>.?/\"';:`")
+	set    = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890")
 	setLen = len(set) - 1
 )
 
