@@ -5,6 +5,7 @@ import (
 	"os"
 	"time"
 
+	_ "github.com/ClickHouse/clickhouse-go"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 )
@@ -20,6 +21,7 @@ func NewSqlDB(t Tester, driverName, envName string) *sql.DB {
 	if err != nil {
 		t.Fatalf("opening sql connection failed: %s", err)
 	}
+
 	db.SetConnMaxLifetime(time.Second)
 
 	return db
