@@ -52,3 +52,7 @@ func RandomString(n int) string {
 
 	return string(randStr)
 }
+
+func RandomCase(args ...interface{}) interface{} {
+	return args[RandInt(0, len(args))]
+}
