@@ -2,7 +2,10 @@ package testutils
 
 import (
 	"fmt"
+	"image"
+	"image/color"
 	"math/rand"
+	"sync"
 	"time"
 )
 
@@ -55,4 +58,40 @@ func RandomString(n int) string {
 
 func RandomCase(args ...interface{}) interface{} {
 	return args[RandInt(0, len(args))]
+}
+
+func RandomImage(width, height int) image.Image {
+	imq := image.NewRGBA(image.Rectangle{
+		Min: image.Point{X: 0, Y: 0},
+		Max: image.Point{X: 1280, Y: 720},
+	})
+
+	var r, g, b uint8
+	clr := &color.RGBA{
+		A: 0xff,
+	}
+
+	pool := &sync.Pool{
+		New: func() interface{} {
+			return clr
+		},
+	}
+
+	for x := 0; x < width; x++ {
+		r = uint8(RandInt(0, 255))
+		g = uint8(RandInt(0, 255))
+		b = uint8(RandInt(0, 255))
+
+		c := pool.New().(*color.RGBA)
+
+		c.R = r
+		c.G = g
+		c.B = b
+
+		for y := 0; y < height; y++ {
+			imq.Set(x, y, c)
+		}
+	}
+
+	return imq
 }
