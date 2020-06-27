@@ -63,7 +63,7 @@ func RandomCase(args ...interface{}) interface{} {
 func RandomImage(width, height int) image.Image {
 	imq := image.NewRGBA(image.Rectangle{
 		Min: image.Point{X: 0, Y: 0},
-		Max: image.Point{X: 1280, Y: 720},
+		Max: image.Point{X: width, Y: height},
 	})
 
 	var r, g, b uint8
