@@ -21,7 +21,7 @@ func RandInt64(min, max int64) int64 {
 
 func RandFloat64(min, max float64) float64 {
 	rand.Seed(time.Now().UnixNano())
-	return min + rand.Float64()*(max+min)
+	return min + rand.Float64()*(max-min)
 }
 
 func RandomIP() string {
