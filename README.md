@@ -10,9 +10,12 @@ This package contains universal interfaces and utilities for handling errors in 
 package some_test
 
 import (
-	"github.com/partyzanex/testutils"
 	"testing"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	
+	"github.com/partyzanex/testutils"
 )
 
 func TestSomeTestName(t *testing.T) {
